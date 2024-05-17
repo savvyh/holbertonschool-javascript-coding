@@ -5,7 +5,7 @@ const fs = require('fs');
 function FileContent(filePath) {
     fs.readFile(filePath, 'utf-8', (err, data) => {
         if (err) {
-            console.error(err);
+            console.log(err);
             return;
         }
         console.log(data);
