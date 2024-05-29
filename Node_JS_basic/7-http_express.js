@@ -14,8 +14,8 @@ app.get('/students', (req, res) => {
     .then((output) => {
       res.send(`This is the list of our students\n${output}`);
     })
-    .catch(() => {
-      res.send('Cannot load the database');
+    .catch((error) => {
+      throw new Error('Cannot load the database');
     });
 });
 
