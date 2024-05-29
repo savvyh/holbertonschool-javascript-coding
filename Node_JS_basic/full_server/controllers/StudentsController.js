@@ -19,7 +19,7 @@ class StudentsController {
   }
 
   static async getAllStudentsByMajor(req, res) {
-    const { major } = req.params;
+    const major = req.params;
 
     if (major !== 'CS' && major !== 'SWE') {
       res.status(500).send('Major parameter must be CS or SWE');
@@ -28,7 +28,7 @@ class StudentsController {
 
     try {
       const students = await readDatabase(process.argv[2]);
-      const list = students[major]?.join(', ') || '';
+      const list = students[major].join(', ') || '';
       res.status(200).send(`List: ${list}`);
     } catch (error) {
       res.status(500).send('Cannot load the database');
