@@ -22,11 +22,12 @@ function countStudents(pathFile) {
         fields[field].push(firstname);
       });
 
-      console.log(`Number of students: ${numberOfStudents}`);
-
+      let output = `Number of students: ${numberOfStudents}\n`;
       for (const [field, names] of Object.entries(fields)) {
-        console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
+        output += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
       }
+
+      return output.trim();
     })
     .catch(() => {
       throw new Error('Cannot load the database');
